@@ -1,1 +1,37 @@
+name: Java Lint and Test
 
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Compile and Lint Java Programs
+        run: javac -Xlint:all Program1.java Program2.java Program3.java Program4.java Program5.java
+
+      - name: Run Program 1
+        run: java Program1
+
+      - name: Run Program 2
+        run: java Program2
+
+      - name: Run Program 3
+        run: java Program3
+
+      - name: Run Program 4
+        run: java Program4
+
+      - name: Run Program 5
+        run: java Program5
